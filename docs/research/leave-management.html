@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Awaiken">
+	<!-- Page Title -->
+    <title>Leave Management Application - Digiinn360</title>
+	<!-- Favicon Icon -->
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/media/company/logo_ylP07ZH.png">
+	
+	<!-- Google Fonts Css-->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
+	<!-- Bootstrap Css -->
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<!-- SlickNav Css -->
+	<link href="/static/css/slicknav.min.css" rel="stylesheet">
+	<!-- Swiper Css -->
+	<link rel="stylesheet" href="/static/css/swiper-bundle.min.css">
+	<!-- Font Awesome Icon Css-->
+	<link href="/static/css/all.min.css" rel="stylesheet" media="screen">
+	<!-- Animated Css -->
+	<link href="/static/css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+	<link rel="stylesheet" href="/static/css/magnific-popup.css">
+	<!-- Mouse Cursor Css File -->
+	<link rel="stylesheet" href="/static/css/mousecursor.css">
+	<!-- Main Custom Css -->
+	<link href="/static/css/custom.css" rel="stylesheet" media="screen">
+	<!-- Jobs Css -->
+	<link href="/static/css/jobs.css" rel="stylesheet" media="screen">
+	
+<style>
+    .project-thumbs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .project-thumbs button {
+        border: 2px solid transparent;
+        padding: 0;
+        background: none;
+        width: 80px;
+        height: 60px;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+    }
+    .project-thumbs button.active,
+    .project-thumbs button:hover {
+        border-color: var(--accent-color, #2ecc71);
+        opacity: 1;
+    }
+    .project-thumbs button img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .project-category-list ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .project-category-list ul li {
+        border-bottom: 1px solid rgba(1, 5, 53, 0.08);
+    }
+    .project-category-list ul li a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        color: inherit;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .project-category-list ul li a:hover,
+    .project-category-list ul li a.active {
+        color: var(--accent-color, #2ecc71);
+    }
+    .project-category-list .count {
+        min-width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(1, 5, 53, 0.06);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+    }
+    .page-project-single {
+        padding-top: 40px;
+        background: url("/static/images/footer-bg.png"), linear-gradient(90.15deg, var(--accent-color) 1.15%, var(--accent-secondary-color) 98.84%);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    .project-url-link {
+        margin-top: 20px;
+    }
+    .project-inline-header {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+    .project-inline-header h1 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+    .project-inline-header .breadcrumb {
+        margin-bottom: 0;
+        background: transparent;
+        padding: 0;
+    }
+    .project-inline-header ol li.breadcrumb-item,
+    .project-inline-header ol li.breadcrumb-item.active,
+    .project-inline-header ol li.breadcrumb-item a {
+        color: #fff;
+    }
+    .project-inline-header ol li.breadcrumb-item a:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+    .project-inline-header ol .breadcrumb-item + .breadcrumb-item::before {
+        color: #fff;
+    }
+    .project-entry {
+        background: var(--secondary-color, #F2F2F5);
+        border-radius: 30px;
+        padding: 30px;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+    .project-entry h2 {
+        color: var(--primary-color, #010535);
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+    .project-entry .post-content,
+    .project-entry .post-content p,
+    .project-entry .post-content * {
+        color: var(--primary-color, #010535);
+    }
+</style>
+
+</head>
+<body>
+
+    <!-- Preloader Start -->
+	<div class="preloader">
+		<div class="loading-container">
+			<div class="loading"></div>
+			<div id="loading-icon"><img src="/static/images/loader.svg" alt=""></div>
+		</div>
+	</div>
+	<!-- Preloader End -->
+
+    <!-- Header Start -->
+	<header class="main-header">
+		<div class="header-sticky">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<!-- Logo Start -->
+					<a class="navbar-brand" href="/">
+						
+						<img src="/media/company/logo_ppeKvEf.png" alt="Digiinn360 Logo" style="width: 70px;">
+						
+					</a>
+					<!-- Logo End -->
+
+					<!-- Main Menu Start -->
+					<div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>                                
+                                <li class="nav-item"><a class="nav-link" href="/services/">Services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/projects/">Projects</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://templates.digiinn360.com">Show Case</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/jobs/">Jobs</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/contact/">Contact Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>                         
+                            </ul>
+                        </div>
+
+                        <!-- Header Btn Start -->
+                        <div class="header-btn">
+                            
+                                <a href="/login/" class="btn-default">Login</a>
+                                <a href="/contact/" class="btn-default" style="margin-left: 10px;">Get Started</a>
+                            
+                        </div>
+                        <!-- Header Btn End -->
+					</div>
+					<!-- Main Menu End -->
+					<div class="navbar-toggle"></div>
+				</div>
+			</nav>
+			<div class="responsive-menu"></div>
+		</div>
+	</header>
+	<!-- Header End -->
+
+    
+    <!-- Project Detail Start -->
+    <div class="page-project-single">
+        <div class="container">
+            <div class="page-header-box project-inline-header wow fadeInUp">
+                <h1 data-cursor="-opaque">Leave Management Application</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">home</a></li>
+                        <li class="breadcrumb-item"><a href="/projects/">projects</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Leave Management Application</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="project-single-content">
+                        
+                        <div class="page-single-slider">
+                            <div class="swiper project-detail-swiper">
+                                <div class="swiper-wrapper">
+                                    
+                                    <div class="swiper-slide">
+                                        <figure class="image-anime" data-cursor-text="Drag">
+                                            <img src="/media/project/Picture7.png" alt="Leave Management Application">
+                                        </figure>
+                                    </div>
+                                    
+                                    <div class="swiper-slide">
+                                        <figure class="image-anime" data-cursor-text="Drag">
+                                            <img src="/media/project/Picture10.png" alt="Leave Management Application">
+                                        </figure>
+                                    </div>
+                                    
+                                    <div class="swiper-slide">
+                                        <figure class="image-anime" data-cursor-text="Drag">
+                                            <img src="/media/project/Picture8.png" alt="Leave Management Application">
+                                        </figure>
+                                    </div>
+                                    
+                                    <div class="swiper-slide">
+                                        <figure class="image-anime" data-cursor-text="Drag">
+                                            <img src="/media/project/Picture9.png" alt="Leave Management Application">
+                                        </figure>
+                                    </div>
+                                    
+                                </div>
+                                <div class="page-single-pagination"></div>
+                            </div>
+                            
+                            <div class="project-thumbs">
+                                
+                                <button type="button" class="project-thumb active" data-index="0" aria-label="Show image 1">
+                                    <img src="/media/project/Picture7.png" alt="Leave Management Application">
+                                </button>
+                                
+                                <button type="button" class="project-thumb" data-index="1" aria-label="Show image 2">
+                                    <img src="/media/project/Picture10.png" alt="Leave Management Application">
+                                </button>
+                                
+                                <button type="button" class="project-thumb" data-index="2" aria-label="Show image 3">
+                                    <img src="/media/project/Picture8.png" alt="Leave Management Application">
+                                </button>
+                                
+                                <button type="button" class="project-thumb" data-index="3" aria-label="Show image 4">
+                                    <img src="/media/project/Picture9.png" alt="Leave Management Application">
+                                </button>
+                                
+                            </div>
+                            
+                        </div>
+                        
+
+                        <div class="project-entry">
+                            <h2 class="wow fadeInUp">Project overview</h2>
+                            <div class="post-content wow fadeInUp" data-wow-delay="0.2s">
+                                <p>Leave Management application is customize solution for any office having teams and teams leads. User can register an account, admin approves it. user apply for leave prior 11a.m or he cannot apply for leave for the same day. Short leaves can also be applied. User marks leave to Team Lead, who either sends it forward to CEO or rejects it. CEO can reject or approve or send leave further to Chairman. Once leave is approved user will get notification. Team can chat or share media with eachother. Stats are shown to admin in website and mobile application. with many options</p>
+
+<p>security features like VPN check and cross country access check in place. User cannot apply for leave with VPN enabled or sitting out side country and apply</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 wow fadeInUp mt-3 mb-3" data-wow-delay="0.3s">
+                    <div class="page-single-sidebar">
+                        <div class="project-detail-list wow fadeInUp">
+                            <div class="project-deatil-title">
+                                <h3>Categories</h3>
+                            </div>
+                            <div class="project-category-list">
+                                <ul>
+                                    <li>
+                                        <a href="/projects/">
+                                            <span>All Projects</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/projects/?category=utility" class="">
+                                            <span>Utility</span>
+                                            <span class="count">0</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/projects/?category=cyber-audits" class="">
+                                            <span>Cyber Audits</span>
+                                            <span class="count">0</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/projects/?category=websites" class="active">
+                                            <span>Websites</span>
+                                            <span class="count">2</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/projects/?category=mobile-software" class="">
+                                            <span>Mobile Software</span>
+                                            <span class="count">0</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/projects/?category=hackathon" class="">
+                                            <span>Hackathon</span>
+                                            <span class="count">0</span>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Project Detail End -->
+
+
+    <!-- Main Footer Section Start -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Footer Header Start -->
+                    <div class="footer-header">
+                        <!-- Footer Logo Start -->
+                        <div class="footer-logo">
+                            
+                            <img src="/media/company/logo_ppeKvEf.png" alt="Digiinn360" style="max-height: 115px;">
+                            
+                        </div>
+                        <!-- Footer Logo End -->
+                        
+                        <!-- Footer Social Links Start -->
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="https://www.facebook.com/digiinn360" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="https://x.com/digiinn360/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/digiinn360/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                <li><a href="https://www.instagram.com/digiinn360/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="https://www.youtube.com/digiinn360/" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                        <!-- Footer Social Links End -->
+                    </div>
+                    <!-- Footer Header End -->
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- Footer Newsletter Form Start -->
+                    <div class="footer-links footer-newsletter-form">
+                        <h3>Subscribe our newsletter:</h3>
+                        <p>Protecting networks, systems data from evolving. </p>
+                        <form id="newsletterForm" method="POST">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="qZKfpE8K8s0FIkU9XwdvGx2cP4yg410fKm5TWvMOlnVeWFu7e1Q58fqvoiL7tdhb">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" id="newsletterEmail" placeholder="Enter Your Email" required="">
+                                <button type="submit" class="newsletter-btn"><i class="fa-regular fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Footer Newsletter Form End -->
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-6">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links footer-quick-links">
+                        <h3>Quick link</h3>
+                        <ul>
+                            <li><a href="/">home</a></li>
+                            <li><a href="/about/">about us</a></li>
+                            <li><a href="/services/">services</a></li>
+                            <li><a href="/blog/">blog</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-6">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>Services</h3>
+                        <ul>
+                            
+                                <li><a href="/service-single/cutting-edge-software-development/">Cutting Edge …</a></li>
+                            
+                                <li><a href="/service-single/threat-detection-and-prevention/">Threat Detection …</a></li>
+                            
+                                <li><a href="/service-single/endpoint-security-solutions/">Endpoint Security …</a></li>
+                            
+                                <li><a href="/service-single/network-defense-and-firewalls/">Network Defense …</a></li>
+                            
+                            
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-6">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Term's & condition </a></li>
+                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="/contact/">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-6">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>Contact</h3>
+                        <ul>
+                            
+                                
+                                <li><a href="tel:051 2748690">051 2748690</a></li>
+                                
+                                <li><a href="tel:0309 5624742">0309 5624742</a></li>
+                                
+                            
+                            <li><a href="mailto:info@digiinn360.com" style="text-transform: none;">info@digiinn360.com</a></li>
+                            <li>House no 3, Street no 14, Sector F7 , Islamabad</li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Copyright Start -->
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Footer Copyright Text Start -->
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2025 Digiinn360. All Rights Reserved.</p>
+                        </div>
+                        <!-- Footer Copyright Text End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Copyright End -->
+    </footer>
+    <!-- Main Footer Section End -->
+    
+    <!-- Jquery Library File -->
+    <script src="/static/js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="/static/js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="/static/js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="/static/js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="/static/js/jquery.waypoints.min.js"></script>
+    <script src="/static/js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="/static/js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="/static/js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="/static/js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="/static/js/gsap.min.js"></script>
+    <script src="/static/js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="/static/js/SplitText.js"></script>
+    <script src="/static/js/ScrollTrigger.min.js"></script>
+    <!-- YTPlayer js File -->
+    <script src="/static/js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Wow js file -->
+    <script src="/static/js/wow.min.js"></script>
+    <!-- Main Custom js file -->
+    <script src="/static/js/function.js"></script>
+    
+    <!-- Newsletter Modals -->
+    <div class="modal fade" id="newsletterSuccessModal" tabindex="-1" aria-labelledby="newsletterSuccessModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newsletterSuccessModalLabel">Newsletter Subscription</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="newsletterSuccessMessage"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newsletterErrorModal" tabindex="-1" aria-labelledby="newsletterErrorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newsletterErrorModalLabel">Newsletter Subscription</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="newsletterErrorMessage"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterEmail = document.getElementById('newsletterEmail');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = newsletterEmail.value;
+            if (!email) {
+                showNewsletterError('Please enter your email address.');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = newsletterForm.querySelector('.newsletter-btn');
+            const originalContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            // Submit form via AJAX
+            fetch('/newsletter/subscribe/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: 'email=' + encodeURIComponent(email)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showNewsletterSuccess(data.message);
+                    newsletterForm.reset();
+                } else {
+                    showNewsletterError(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNewsletterError('An error occurred. Please try again.');
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.innerHTML = originalContent;
+                submitBtn.disabled = false;
+            });
+        });
+        
+        function showNewsletterSuccess(message) {
+            document.getElementById('newsletterSuccessMessage').textContent = message;
+            const modal = new bootstrap.Modal(document.getElementById('newsletterSuccessModal'));
+            modal.show();
+        }
+        
+        function showNewsletterError(message) {
+            document.getElementById('newsletterErrorMessage').textContent = message;
+            const modal = new bootstrap.Modal(document.getElementById('newsletterErrorModal'));
+            modal.show();
+        }
+        
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    });
+    </script>
+    
+    
+
+<script>
+    (function () {
+        const imagesCount = 4;
+        const mainEl = document.querySelector('.project-detail-swiper');
+        if (!mainEl || typeof Swiper === 'undefined') return;
+
+        const thumbs = document.querySelectorAll('.project-thumbs .project-thumb');
+        const swiper = new Swiper(mainEl, {
+            slidesPerView: 1,
+            speed: 800,
+            spaceBetween: 20,
+            loop: false,
+            autoplay: imagesCount > 1 ? {
+                delay: 5000,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false,
+            } : false,
+            pagination: {
+                el: '.page-single-pagination',
+                clickable: true,
+            },
+            on: {
+                slideChange: function () {
+                    thumbs.forEach(function (thumb) {
+                        thumb.classList.toggle('active', Number(thumb.dataset.index) === this.activeIndex);
+                    }.bind(this));
+                }
+            }
+        });
+
+        thumbs.forEach(function (thumb) {
+            thumb.addEventListener('click', function () {
+                swiper.slideTo(Number(thumb.dataset.index));
+            });
+        });
+    })();
+</script>
+
+
+</body>
+</html>
